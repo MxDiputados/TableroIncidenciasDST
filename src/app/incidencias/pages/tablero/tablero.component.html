@@ -1,0 +1,53 @@
+
+
+  <div class="cdk-virtual-scroll-data-source-example">
+    <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="150" class="example-viewport">
+      <div fxLayout="row" fxLayoutGap="10px" class="container">
+
+        <div fxFlex="50">Reportado
+          <div   *ngFor="let incidencia of incidencias | filter: 'Reportado' ">
+      
+            <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+          </div>
+              
+        </div>
+      
+          <div >Asignado
+            <div   *ngFor="let incidencia of incidencias | filter: 'Asignado' ">
+      
+              <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+            </div>
+                
+          </div>
+          <div >En atención
+            <div  *ngFor="let incidencia of incidencias | filter: 'En atencion' ">
+      
+              <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+            </div>
+          </div>
+          <div >Verificar
+            <div  *ngFor="let incidencia of incidencias | filter: 'Verificar' ">
+      
+              <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayoutGap="32px">Atendido
+            <div  *ngFor="let incidencia of incidencias | filter: 'Atendido' ">
+      
+              <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayoutGap="32px">Rechazado
+            <div  *ngFor="let incidencia of incidencias | filter: 'Rechazado' ">
+      
+              <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+            </div>
+          </div>
+      
+      
+          
+        </div>
+        
+    </cdk-virtual-scroll-viewport>
+  </div>
+  

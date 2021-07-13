@@ -1,0 +1,28 @@
+/* md-card {
+    min-width: 200px;
+  }
+  
+  .container {
+    overflow: auto;
+  }
+  md-card {
+    min-width: 200px;
+  }
+  
+  div[layout="row"] {
+    overflow: auto;
+  } */
+  .cdk-virtual-scroll-data-source-example .example-viewport {
+    height: 806px;
+    border: 1px solid black;
+  }
+  
+  .cdk-virtual-scroll-data-source-example .example-viewport .cdk-virtual-scroll-content-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .cdk-virtual-scroll-data-source-example .example-item {
+    width: 50px;
+    height: 100%;
+  }
