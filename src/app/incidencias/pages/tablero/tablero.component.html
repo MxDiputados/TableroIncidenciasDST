@@ -2,7 +2,7 @@
     <!-- <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="150" class="example-viewport"> -->
     <div fxLayout="row" fxLayoutGap="10px" class="container">
         <div>
-            <h3><strong>Reportado </strong> <button mat-mini-fab>{{reportado.length}}</button></h3>
+            <h3><strong>Reportado </strong> <button mat-mini-fab><strong>{{reportado.length}}</strong></button></h3>
             <span *ngIf="reportado?.length > 0"><div *ngFor="let incidencia of reportado | filter: 'Reportado'">
             <app-incidencia-tarjeta
               [incidencia]="incidencia"
@@ -30,7 +30,7 @@
         </div>
 
         <div>
-            <h3><strong>Asignado </strong> <button mat-mini-fab>{{asignado.length}}</button></h3>
+            <h3><strong>Asignado </strong> <button mat-mini-fab><strong>{{asignado.length}}</strong></button></h3>
             <span *ngIf="asignado?.length||0 > 0"><div *ngFor="let incidencia of asignado | filter: 'Asignado'">
             <app-incidencia-tarjeta
               [incidencia]="incidencia"
@@ -58,7 +58,7 @@
             </section>
         </div>
         <div>
-            <h3><strong>En atención </strong> <button mat-mini-fab>{{enAtencion.length}}</button></h3>
+            <h3><strong>En atención </strong> <button mat-mini-fab><strong>{{enAtencion.length}}</strong></button></h3>
             <span *ngIf="enAtencion?.length||0 > 0">
                 <div *ngFor="let incidencia of enAtencion ">
                     <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
@@ -85,7 +85,7 @@
             </section>
         </div>
         <div>
-            <h3><strong>Verificar </strong> <button mat-mini-fab>{{verificar.length}}</button></h3>
+            <h3><strong>Verificar </strong> <button mat-mini-fab><strong>{{verificar.length}}</strong></button></h3>
             <span *ngIf="verificar?.length||0 > 0">
           <div *ngFor="let incidencia of verificar | filter: 'Verificar'">
             <app-incidencia-tarjeta
@@ -114,7 +114,7 @@
             </section>
         </div>
         <div fxLayout="column" fxLayoutGap="32px">
-            <span *ngIf="atendido.length>0"><h4><strong>Atendido </strong> <button mat-mini-fab>{{atendido.length}}</button></h4>
+            <span *ngIf="atendido.length>0"><h4><strong>Atendido </strong> <button mat-mini-fab><strong>{{atendido.length}}</strong></button></h4>
             <div *ngFor="let incidencia of atendido | filter: 'Atendido'">
                 <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
             </div></span>
@@ -139,7 +139,7 @@
             </section>
         </div>
         <div fxLayout="column" fxLayoutGap="32px">
-            <h3><strong>Rechazado </strong> <button mat-mini-fab>{{rechazado.length}}</button></h3>
+            <h3><strong>Rechazado </strong> <button mat-mini-fab><strong>{{rechazado.length}}</strong></button></h3>
             <span *ngIf="rechazado?.length||0 > 0"><div *ngFor="let incidencia of rechazado | filter: 'Rechazado'">
             <app-incidencia-tarjeta
               [incidencia]="incidencia"
