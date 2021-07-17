@@ -3,8 +3,8 @@ import {APOLLO_OPTIONS} from 'apollo-angular';
 import {ApolloClientOptions, ApolloLink, InMemoryCache} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
 import {onError} from '@apollo/client/link/error'
-// const uri = 'https://micrositios.diputados.gob.mx:4001/graphql'; // <-- add the URL of the GraphQL server here
-const uri = 'http://localhost:4001/graphql'; // <-- add the URL of the GraphQL server here
+const uri = 'https://micrositios.diputados.gob.mx:4001/graphql'; // <-- add the URL of the GraphQL server here
+// const uri = 'http://localhost:4001/graphql'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink):ApolloClientOptions<any> {
   const errorLink = onError(({graphQLErrors, networkError}) => {
     if(graphQLErrors){
