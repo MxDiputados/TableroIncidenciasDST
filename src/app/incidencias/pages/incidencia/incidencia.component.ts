@@ -5,7 +5,7 @@ import { Incidencias } from '../../interface/interface';
 import { IncidenciaService } from '../../services/incidencia.service';
 interface Estatus {
   texto: string;
-  valor: number;
+  value: number;
 }
 
 @Component({
@@ -18,26 +18,45 @@ export class IncidenciaComponent implements OnInit {
   
 
   estatus:Estatus[] = [
-    {texto:'Todos' ,      valor:6},
-    {texto:'Reportado',   valor:0},
-    {texto:'Asignado' ,   valor:1},
-    {texto:'En atencion', valor:2},
-    {texto:'Verificar',   valor:3},
-    {texto:'Atendido',    valor:4},
-    {texto:'Rechazado' ,  valor:5},
+    {texto:'Todos' ,      value:6},
+    {texto:'Reportado',   value:0},
+    {texto:'Asignado' ,   value:1},
+    {texto:'En atencion', value:2},
+    {texto:'Verificar',   value:3},
+    {texto:'Atendido',    value:4},
+    {texto:'Rechazado' ,  value:5},
   ];
+  tipoEstatus: any = 0;
+  public incidenciasFiltradas: Incidencias[]=[];
+  loading=false;
   constructor(private incidencia: IncidenciaService) { }
-  opcionSeleccionado: string = this.estatus[0].texto;
-  incidencias: Incidencias[] = [];
+  opcionSeleccionado: string = 'Todos';
+  private incidencias: Incidencias[] = [];
   ngOnInit(): void {
-
+this.loading=true;
     this.incidencia.getIncidencias().subscribe(result =>{
       this.incidencias = result;
-      // console.log(this.incidencias);
+      this.incidenciasFiltradas= [...this.incidencias];
+      this.loading=false;
+      console.log('Incidencias',this.incidencias);
     });
   }
-
-  // search(value: string) {
+  filtrarTipo(estatus: any) {
+    this.tipoEstatus = estatus;
+    this.filtrar();
+  }
+  filtrar() {
+    console.log('tipo',this.tipoEstatus);
+    this.incidenciasFiltradas = [...this.incidencias.filter((inci) => {
+      return (
+        (this.tipoEstatus !== 6
+          ? inci.Estatus === this.tipoEstatus
+          : true) 
+      );
+    })];
+    console.log('incidencias YYY', this.incidenciasFiltradas );
+  }
+  // search(value: stri ng) {
     
   //   let inc = this.incidencias.filter(item =>
   //     item.Estatus.includes(value)
