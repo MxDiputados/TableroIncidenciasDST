@@ -1,4 +1,9 @@
-<div>
+<mat-grid-list cols="1" *ngIf="loading">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+<div *ngIf="!loading">
     <!-- <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="150" class="example-viewport"> -->
     <div fxLayout="row" fxLayoutGap="10px" class="container">
         <div>
