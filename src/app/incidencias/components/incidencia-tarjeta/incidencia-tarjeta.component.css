@@ -1,12 +1,18 @@
-mat-card{
+mat-card {
     margin-top: 20px;
+    max-width: 450px;
 }
-.truncate{
+
+.truncate {
     display: -webkit-box;
-    -webkit-box-orient:vertical; /* orientacion */
-    -webkit-line-clamp:5; /* solo muestra las primeras 5 lineas*/
-    overflow: hidden; /* ocultara todo lo demas */
+    -webkit-box-orient: vertical;
+    /* orientacion */
+    -webkit-line-clamp: 5;
+    /* solo muestra las primeras 5 lineas*/
+    overflow: hidden;
+    /* ocultara todo lo demas */
 }
-.spacer{
+
+.spacer {
     flex: 1 1 auto;
 }

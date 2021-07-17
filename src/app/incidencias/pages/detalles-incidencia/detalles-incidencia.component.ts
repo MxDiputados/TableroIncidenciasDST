@@ -18,12 +18,15 @@ export class DetallesIncidenciaComponent implements OnInit {
     Observaciones:'',
     Id:0,
     Area:'',
-    Severidad:'',
+    Severidad:0,
+    DetalleSeveridad:'',
     FechaActualizacion:'',
     FechaHoraReporte:'', 
     UsuarioAsignado:'', 
-    Categoria:'',
-    Estatus:'' 
+    Categoria:0,
+    DetalleCategoria:'',
+    Estatus:0,
+    DetalleEstatus:'' 
   };
   ngOnInit(): void {
     this.loading = true;

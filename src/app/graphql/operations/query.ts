@@ -8,11 +8,14 @@ export const allIncidencias = gql`
       Id
       Area
       Severidad
+      DetalleSeveridad
       FechaActualizacion
       FechaHoraReporte
       UsuarioAsignado
       Categoria
+      DetalleCategoria
       Estatus
+      DetalleEstatus
     }
   }
 `;
@@ -23,11 +26,14 @@ export const getAllIncidenciaById = gql`
       Observaciones
       Id
       Area
+      DetalleSeveridad
       Severidad
+      DetalleEstatus
       FechaActualizacion
       FechaHoraReporte
       UsuarioAsignado
       Categoria
+      DetalleCategoria
       Estatus
     }
   }

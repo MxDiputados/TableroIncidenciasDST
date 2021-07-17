@@ -21,11 +21,14 @@ export class IncidenciaService {
         Id
         Area
         Severidad
+        DetalleSeveridad
         FechaActualizacion
         FechaHoraReporte
         UsuarioAsignado
         Categoria
+        DetalleCategoria
         Estatus
+        DetalleEstatus
       }}
       `,
       fetchPolicy:'network-only',

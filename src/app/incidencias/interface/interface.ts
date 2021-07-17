@@ -4,10 +4,13 @@ export interface Incidencias {
     Observaciones:string;
     Id:number;
     Area:String;
-    Severidad:string;
+    Severidad:number;
+    DetalleSeveridad: string;
     FechaActualizacion: string;
     FechaHoraReporte: string;
     UsuarioAsignado: string;
-    Categoria: string;
-    Estatus:string;
+    Categoria: number;
+    DetalleCategoria: string;
+    Estatus:number;
+    DetalleEstatus:string;
 }

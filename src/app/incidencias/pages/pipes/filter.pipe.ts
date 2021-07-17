@@ -15,7 +15,7 @@ export class FilterPipe implements PipeTransform {
     let result = [];
     for (const estatu of value) {
 
-      if (estatu.Estatus.indexOf(arg) > -1 ) {
+      if (estatu.DetalleEstatus.indexOf(arg) > -1 ) {
         result.push(estatu);
       }
     }
