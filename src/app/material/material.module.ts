@@ -10,7 +10,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select'; 
 import {ScrollingModule} from '@angular/cdk/scrolling';  
-
+import {DragDropModule} from '@angular/cdk/drag-drop'; 
 
 @NgModule({
   declarations: [],
@@ -24,7 +24,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MatProgressSpinnerModule,
     MatGridListModule,
     MatSelectModule,
-    ScrollingModule
+    ScrollingModule,
+    DragDropModule
   ],
  
 })
