@@ -1,127 +1,148 @@
-<div class="cdk-virtual-scroll-data-source-example">
-    <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="150" class="example-viewport">
-        <div fxLayout="row" fxLayoutGap="10px" class="container">
-            <div>
-                <h3><strong>Reportado</strong></h3>
-                <span *ngIf="reportado.length > 0"><div *ngFor="let incidencia of reportado | filter: 'Reportado'">
+<div>
+    <!-- <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="150" class="example-viewport"> -->
+    <div fxLayout="row" fxLayoutGap="10px" class="container">
+        <div>
+            <h3><strong>Reportado</strong></h3>
+            <span *ngIf="reportado?.length > 0"><div *ngFor="let incidencia of reportado | filter: 'Reportado'">
             <app-incidencia-tarjeta
               [incidencia]="incidencia"
             ></app-incidencia-tarjeta></div
         ></span>
-                <section>
-                    <div>
-                        <div *ngIf="verificar?.length === 0">
-                            <div class="row espacioSeparador" data-aos="fade-right">
-                                <div class="col-12 separadorFondo">
-                                    <h4 class="formatoSeparador">Resultados</h4>
-                                </div>
+            <section>
+                <div>
+                    <div *ngIf="reportado?.length === 0">
+                        <div class="row espacioSeparador" data-aos="fade-right">
+                            <div class="col-12 separadorFondo">
+                                <h4 class="formatoSeparador">Resultados</h4>
                             </div>
+                        </div>
 
-                            <div class="row items-container m-5">
-                                <div class="col-md-6">
-                                    <div class="alert alert-success text-center" role="alert">
-                                        No existen incidencias
-                                    </div>
+                        <div class="row items-container m-5">
+                            <div class="col-md-6">
+                                <div class="alert alert-success text-center" role="alert">
+                                    No existen incidencias
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
+        </div>
 
-            <div>
-                <h3><strong>Asignado</strong></h3>
-                <span *ngIf="asignado.length > 0"><div *ngFor="let incidencia of asignado | filter: 'Asignado'">
+        <div>
+            <h3><strong>Asignado</strong></h3>
+            <span *ngIf="asignado?.length||0 > 0"><div *ngFor="let incidencia of asignado | filter: 'Asignado'">
             <app-incidencia-tarjeta
               [incidencia]="incidencia"
             ></app-incidencia-tarjeta></div
         ></span>
 
-                <section>
-                    <div>
-                        <div *ngIf="asignado?.length === 0">
-                            <div class="row espacioSeparador" data-aos="fade-right">
-                                <div class="col-12 separadorFondo">
-                                    <h4 class="formatoSeparador"><strong>Resultados</strong></h4>
-                                </div>
+            <section>
+                <div>
+                    <div *ngIf="asignado?.length === 0">
+                        <div class="row espacioSeparador" data-aos="fade-right">
+                            <div class="col-12 separadorFondo">
+                                <h4 class="formatoSeparador"><strong>Resultados</strong></h4>
                             </div>
+                        </div>
 
-                            <div class="row items-container m-5">
-                                <div class="col-md-6">
-                                    <div class="alert alert-success text-center" role="alert">
-                                        No existen incidencias
-                                    </div>
+                        <div class="row items-container m-5">
+                            <div class="col-md-6">
+                                <div class="alert alert-success text-center" role="alert">
+                                    No existen incidencias
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-            <div>
-                <h3><strong>En atención</strong></h3>
-                <div *ngFor="let incidencia of enAtencion | filter: 'En atencion'">
+                </div>
+            </section>
+        </div>
+        <div>
+            <h3><strong>En atención</strong></h3>
+            <span *ngIf="enAtencion?.length||0 > 0">
+                <div *ngFor="let incidencia of enAtencion ">
                     <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
                 </div>
-            </div>
-            <div>
-                <h3><strong>Verificar</strong></h3>
-                <span *ngIf="verificar.length > 0">
+                </span>
+            <section>
+                <div>
+                    <div *ngIf="enAtencion?.length === 0">
+                        <div class="row espacioSeparador" data-aos="fade-right">
+                            <div class="col-12 separadorFondo">
+                                <h4 class="formatoSeparador">Resultados</h4>
+                            </div>
+                        </div>
+
+                        <div class="row items-container m-5">
+                            <div class="col-md-6">
+                                <div class="alert alert-success text-center" role="alert">
+                                    No existen incidencias
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div>
+            <h3><strong>Verificar</strong></h3>
+            <span *ngIf="verificar?.length||0 > 0">
           <div *ngFor="let incidencia of verificar | filter: 'Verificar'">
             <app-incidencia-tarjeta
               [incidencia]="incidencia"
             ></app-incidencia-tarjeta>
           </div>
         </span>
-                <section>
-                    <div>
-                        <div *ngIf="verificar?.length === 0">
-                            <div class="row espacioSeparador" data-aos="fade-right">
-                                <div class="col-12 separadorFondo">
-                                    <h4 class="formatoSeparador">Resultados</h4>
-                                </div>
+            <section>
+                <div>
+                    <div *ngIf="verificar?.length === 0">
+                        <div class="row espacioSeparador" data-aos="fade-right">
+                            <div class="col-12 separadorFondo">
+                                <h4 class="formatoSeparador">Resultados</h4>
                             </div>
+                        </div>
 
-                            <div class="row items-container m-5">
-                                <div class="col-md-6">
-                                    <div class="alert alert-success text-center" role="alert">
-                                        No existen incidencias
-                                    </div>
+                        <div class="row items-container m-5">
+                            <div class="col-md-6">
+                                <div class="alert alert-success text-center" role="alert">
+                                    No existen incidencias
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-            <div fxLayout="column" fxLayoutGap="32px">
-                <h4><strong>Atendido</strong></h4>
-                <div *ngFor="let incidencia of atendido | filter: 'Atendido'">
-                    <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
                 </div>
+            </section>
+        </div>
+        <div fxLayout="column" fxLayoutGap="32px">
+            <h4><strong>Atendido</strong></h4>
+            <div *ngFor="let incidencia of atendido | filter: 'Atendido'">
+                <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
             </div>
-            <div fxLayout="column" fxLayoutGap="32px">
-                <h3><strong>Rechazado</strong></h3>
-                <span *ngIf="rechazado.length > 0"><div *ngFor="let incidencia of rechazado | filter: 'Rechazado'">
+        </div>
+        <div fxLayout="column" fxLayoutGap="32px">
+            <h3><strong>Rechazado</strong></h3>
+            <span *ngIf="rechazado?.length||0 > 0"><div *ngFor="let incidencia of rechazado | filter: 'Rechazado'">
             <app-incidencia-tarjeta
               [incidencia]="incidencia"
             ></app-incidencia-tarjeta></div
         ></span>
 
-                <div *ngIf="rechazado?.length === 0">
-                    <div class="row espacioSeparador" data-aos="fade-right">
-                        <div class="col-12 separadorFondo">
-                            <h4 class="formatoSeparador">Resultados</h4>
-                        </div>
+            <div *ngIf="rechazado?.length === 0">
+                <div class="row espacioSeparador" data-aos="fade-right">
+                    <div class="col-12 separadorFondo">
+                        <h4 class="formatoSeparador">Resultados</h4>
                     </div>
+                </div>
 
-                    <div class="row items-container m-5">
-                        <div class="col-md-6">
-                            <div class="alert alert-success text-center" role="alert">
-                                No existen incidencias
-                            </div>
+                <div class="row items-container m-5">
+                    <div class="col-md-6">
+                        <div class="alert alert-success text-center" role="alert">
+                            No existen incidencias
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </cdk-virtual-scroll-viewport>
+    </div>
+    <!-- </cdk-virtual-scroll-viewport> -->
 </div>

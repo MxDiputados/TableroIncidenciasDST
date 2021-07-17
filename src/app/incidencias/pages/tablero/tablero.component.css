@@ -12,17 +12,17 @@
   div[layout="row"] {
     overflow: auto;
   } */
-  .cdk-virtual-scroll-data-source-example .example-viewport {
-    height: 806px;
+
+.cdk-virtual-scroll-data-source-example .example-viewport {
     border: 1px solid black;
-  }
-  
-  .cdk-virtual-scroll-data-source-example .example-viewport .cdk-virtual-scroll-content-wrapper {
+}
+
+.cdk-virtual-scroll-data-source-example .example-viewport .cdk-virtual-scroll-content-wrapper {
     display: flex;
     flex-direction: row;
-  }
-  
-  .cdk-virtual-scroll-data-source-example .example-item {
+}
+
+.cdk-virtual-scroll-data-source-example .example-item {
     width: 50px;
     height: 100%;
-  }
+}
