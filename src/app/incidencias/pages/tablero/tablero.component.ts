@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Incidencias } from '../../interface/interface';
 import { IncidenciaService } from '../../services/incidencia.service';
@@ -14,7 +15,7 @@ export class TableroComponent implements OnInit {
 
   incidencias: Incidencias[] = [];
 
-    estatus:Estatus[] = [
+  estatus:Estatus[] = [
     {texto:'Reportado',   valor:0},
     {texto:'Asignado' ,   valor:1},
     {texto:'En atencion', valor:2},
@@ -30,10 +31,10 @@ export class TableroComponent implements OnInit {
   verificar: Incidencias[]=[];
   atendido: Incidencias[]=[];
   rechazado: Incidencias[]=[];
-  constructor(private incidencia: IncidenciaService) { }
+  constructor(private incidenciaService: IncidenciaService) { }
 
   ngOnInit(): void {
-    this.incidencia.getIncidencias().subscribe(result =>{
+    this.incidenciaService.getIncidencias().subscribe(result =>{
       this.incidencias = result;
       console.log(this.incidencias);
 this.reportado=this.incidencias.filter(inc => inc.DetalleEstatus === 'Reportado');
@@ -54,5 +55,26 @@ this.rechazado=this.incidencias.filter(inc => inc.DetalleEstatus === 'Rechazado'
       // console.log("reportados ",reportados);
     });
   }
+   /**
+   * An array of all track ids. Each id is associated with a `cdkDropList` for the
+   * track talks. This property can be used to connect all drop lists together.
+   */
+    // trackIds(boardIndex): string[] {
+    //   return this.boards[boardIndex].tracks.map(track => track.id);
+    // }
+ 
+  drop(event: CdkDragDrop<Incidencias[]>) {
+    console.log(event);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      console.log("movido");
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
+  }
+
 
 }
