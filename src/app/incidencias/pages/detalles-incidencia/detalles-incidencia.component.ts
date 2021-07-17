@@ -26,7 +26,9 @@ export class DetallesIncidenciaComponent implements OnInit {
     Categoria:0,
     DetalleCategoria:'',
     Estatus:0,
-    DetalleEstatus:'' 
+    DetalleEstatus:'',
+    Sistema:'',
+    DetalleSistema:'',
   };
   ngOnInit(): void {
     this.loading = true;

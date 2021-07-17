@@ -1,43 +1,56 @@
 <div class="flex-container" fxLayout="row">
-    <div class="child-1 " fxFlex></div>
-    <div class="child-2" fxFlex></div>
-    <div class="child-3" fxFlex>
-        <h4>Buscar incidencia</h4>
+    <div class="child-1" fxFlex>
+        <h4>Fitrar por estado</h4>
         <mat-form-field appearance="fill">
-            <mat-label>Choose an option</mat-label>
+            <mat-label>Elija un estado</mat-label>
             <mat-select id="estatus" [(value)]="tipoEstatus" [(ngModel)]="tipoEstatus" (selectionChange)="filtrar()">
-                <mat-option *ngFor=" let estatu of estatus " [value]="estatu.value ">{{estatu.texto}}</mat-option>
-                <!-- <mat-option  (selectionChange)="search($event.value) "value="1 ">Asignado</mat-option> -->
+                <mat-option *ngFor="let estatu of estatus" [value]="estatu.value">{{ estatu.texto }}
+                </mat-option>
             </mat-select>
         </mat-form-field>
     </div>
-
-
+    <div class="child-2" fxFlex>
+        <h4>Filtrar por sistema</h4>
+        <mat-form-field appearance="fill">
+            <mat-label>Eliga un sistema</mat-label>
+            <mat-select id="estatus" [(value)]="sistema" [(ngModel)]="sistema" (selectionChange)="filtrar()">
+                <mat-option *ngFor="let item of sistemas" [value]="item.Oid">{{ item.NombreSistema }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="child-3" fxFlex>
+        <h4>Filtrar por severidad</h4>
+        <mat-form-field appearance="fill">
+            <mat-label>Elija la severidad</mat-label>
+            <mat-select id="estatus" [(value)]="severidad" [(ngModel)]="severidad" (selectionChange)="filtrar()">
+                <mat-option *ngFor="let item of severidades" [value]="item.value">{{ item.texto }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 </div>
 
 <mat-divider></mat-divider>
-<br>
-<div class="flex-container " fxLayout="row ">
-    <div class="child-1 " fxFlex>
+<br />
+<div class="flex-container" fxLayout="row ">
+    <div class="child-1" fxFlex>
         <h1></h1>
     </div>
-    <div class="child-2 " fxFlex></div>
-
+    <div class="child-2" fxFlex></div>
 </div>
 
 <div fxLayout="row wrap " fxLayout.xs="column " fxLayoutAlign="center " fxLayoutGap="20px ">
-
     <!-- fxflex="20 " total del tamaño de las tarjetas osea 20% del row -->
-    <div fxFlex="30 " fxFlex.lg="30 " fxFlex.sm="30 " *ngFor="let incidencia of incidenciasFiltradas ">
+    <div fxFlex="30 " fxFlex.lg="30 " fxFlex.sm="30 " *ngFor="let incidencia of incidenciasFiltradas">
         <!-- adentro de mi fxFlex va a ir mi ngfor *ngIf="opcionSeleccionado.length> 0; else templateName" -->
         <div>
-            <app-incidencia-tarjeta *ngIf="tipoEstatus !==3 else sinDatos" [incidencia]="incidencia"></app-incidencia-tarjeta>
+            <app-incidencia-tarjeta *ngIf="tipoEstatus !== 3; else sinDatos" [incidencia]="incidencia"></app-incidencia-tarjeta>
 
             <ng-template #sinDatos>
                 <h1>No hay datos</h1>
             </ng-template>
         </div>
-
     </div>
     <section>
         <div>

@@ -7,6 +7,8 @@ export const allIncidencias = gql`
       Observaciones
       Id
       Area
+      Sistema
+      DetalleSistema
       Severidad
       DetalleSeveridad
       FechaActualizacion
@@ -28,6 +30,8 @@ export const getAllIncidenciaById = gql`
       Area
       DetalleSeveridad
       Severidad
+      Sistema
+      DetalleSistema
       DetalleEstatus
       FechaActualizacion
       FechaHoraReporte

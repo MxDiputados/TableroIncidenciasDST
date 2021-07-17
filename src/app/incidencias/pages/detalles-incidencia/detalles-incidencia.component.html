@@ -8,45 +8,39 @@
     <h1>Detalles de incidencias</h1>
     <mat-card>
         <mat-card-header>
-            <mat-card-title><strong>{{incidenciasId.DetalleEstatus}}</strong> {{incidenciasId.Descripcion}}</mat-card-title>
-            <mat-card-subtitle>{{incidenciasId.Area}}</mat-card-subtitle>
+            <mat-card-title> {{incidenciasId.DetalleSistema}}</mat-card-title>
+            <mat-card-subtitle>{{incidenciasId.Descripcion}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card fxLayout fxLayoutGap="20px">
             <mat-card class="child-1">
-                <mat-icon>person</mat-icon> Usuario: {{incidenciasId.UsuarioAsignado}}</mat-card>
-
+                <mat-icon>person</mat-icon> Reportado por: {{incidenciasId.Area}}</mat-card>
             <mat-card class="child-2">
+                <mat-icon>person</mat-icon> Asignado a: {{incidenciasId.UsuarioAsignado}}</mat-card>
+        </mat-card>
+        <mat-card fxLayout fxLayoutGap="20px">
+            <mat-card class="child-3">
                 <mat-icon [ngStyle]="{'color':incidenciasId.Categoria == 5 ?'red':'yellow'}">warning</mat-icon>
-
-                <span [ngStyle]="{'color':incidenciasId.Categoria == 5 ?'red':'yellow'}"> Categoria: {{incidenciasId.DetalleCategoria}}</span></mat-card>
-            <mat-card class="child-3">
+                <span [ngStyle]="{'color':incidenciasId.Categoria == 5 ?'red':'yellow'}"> Categoria: </span> <span>{{incidenciasId.DetalleCategoria}}</span></mat-card>
+            <mat-card class="child-4">
                 <mat-icon>event</mat-icon>
-
                 <span> {{incidenciasId.FechaHoraReporte | date: 'dd/MM/yyyy'}} </span></mat-card>
-            <mat-card class="child-3">
+            <mat-card class="child-5">
                 <mat-icon>info</mat-icon>
-
                 <span>Severidad {{incidenciasId.DetalleSeveridad}} </span></mat-card>
         </mat-card>
 
         <mat-card-content>
-
-
             <mat-nav-list>
-
                 <p mat-list-item>
                     <mat-icon mat-list-icon>label</mat-icon>
-
                     <span> Observaciones: {{incidenciasId.Observaciones}}</span>
                 </p>
-
             </mat-nav-list>
-
-
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button color="warn" [routerLink]="['/incidencias']" routerLinkActive="router-link-active">Regresar</button>
-            <button mat-button color="info"></button>
+            <button mat-raised-button color="primary">Avanzar</button>
+            <button mat-raised-button color="accent" [routerLink]="['/incidencias']" routerLinkActive="router-link-active">Regresar</button>
+
         </mat-card-actions>
     </mat-card>
 

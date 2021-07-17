@@ -29,6 +29,8 @@ export class IncidenciaService {
         DetalleCategoria
         Estatus
         DetalleEstatus
+        DetalleSistema
+        Sistema
       }}
       `,
       fetchPolicy:'network-only',
