@@ -1,4 +1,9 @@
-<div class="flex-container" fxLayout="row">
+<mat-grid-list cols="1" *ngIf="loading">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+<div *ngIf="!loading" class="flex-container" fxLayout="row">
     <div class="child-1" fxFlex>
         <h4>Fitrar por estado</h4>
         <mat-form-field appearance="fill">

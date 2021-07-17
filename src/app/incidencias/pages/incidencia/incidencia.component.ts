@@ -21,6 +21,8 @@ export interface Severidad {
   styleUrls: ['./incidencia.component.css'],
 })
 export class IncidenciaComponent implements OnInit {
+  loading: boolean = false;
+
   estatus: Estatus[] = [
     { texto: 'Todos', value: 999 },
     { texto: 'Reportado', value: 0 },
@@ -134,7 +136,6 @@ export class IncidenciaComponent implements OnInit {
   tipoEstatus: any = 999;
   sistema: any = '';
   public incidenciasFiltradas: Incidencias[] = [];
-  loading = false;
   severidad: any = 999;
   constructor(private incidencia: IncidenciaService) {}
   opcionSeleccionado: string = 'Todos';
