@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { IncidenciaComponent } from './pages/incidencia/incidencia.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { IncidenciaTarjetaComponent } from './components/incidencia-tarjeta/incidencia-tarjeta.component';
-import { DetallesIncidenciaComponent } from './pages/detalles-incidencia/detalles-incidencia.component';
+import { DetallesIncidenciaComponent, EvidendiaIncidenciaDialog } from './pages/detalles-incidencia/detalles-incidencia.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pages/pipes/filter.pipe';
 import { TableroComponent } from './pages/tablero/tablero.component';
@@ -19,7 +19,8 @@ import { TableroComponent } from './pages/tablero/tablero.component';
     IncidenciaTarjetaComponent,
     DetallesIncidenciaComponent,
     FilterPipe,
-    TableroComponent
+    TableroComponent,
+    EvidendiaIncidenciaDialog
   ],
   imports: [
     CommonModule,

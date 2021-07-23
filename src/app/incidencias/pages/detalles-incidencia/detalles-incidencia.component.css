@@ -1,3 +1,7 @@
 mat-card {
     max-width: 1000px;
 }
+
+mat-card-content {
+    max-width: 800px;
+}

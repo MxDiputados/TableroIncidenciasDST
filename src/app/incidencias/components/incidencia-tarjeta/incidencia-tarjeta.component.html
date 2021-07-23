@@ -1,67 +1,109 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title [ngStyle]="{
-            'color':incidencia.DetalleSeveridad == 'Muy baja' ?'gray':
-            incidencia.DetalleSeveridad == 'Baja' ? '#ADD8E6'  :
-            incidencia.DetalleSeveridad == 'Media'? 'yellow' :
-            incidencia.DetalleSeveridad == 'Alta' ? '#EF7F1A':
-            incidencia.DetalleSeveridad == 'Complicada' ? '#FF4500':
-            incidencia.DetalleSeveridad == 'Muy alta' ? '#e91e63':
-            'yellow'}">{{incidencia.Descripcion|titlecase}}</mat-card-title>
-        <mat-card-subtitle>{{incidencia.DetalleSistema}} - {{incidencia.Area}}</mat-card-subtitle>
+        color:
+          incidencia.DetalleSeveridad == 'Muy baja'
+            ? 'gray'
+            : incidencia.DetalleSeveridad == 'Baja'
+            ? '#ADD8E6'
+            : incidencia.DetalleSeveridad == 'Media'
+            ? 'yellow'
+            : incidencia.DetalleSeveridad == 'Alta'
+            ? '#EF7F1A'
+            : incidencia.DetalleSeveridad == 'Complicada'
+            ? '#FF4500'
+            : incidencia.DetalleSeveridad == 'Muy alta'
+            ? '#e91e63'
+            : 'yellow'
+      }">{{ incidencia.Descripcion | titlecase }}</mat-card-title>
+        <mat-card-subtitle>{{ incidencia.DetalleSistema }}-{{ incidencia.NombreModulo }} </mat-card-subtitle>
     </mat-card-header>
-
 
     <mat-card-content>
         <mat-nav-list>
-
             <a mat-list-item>
                 <mat-icon mat-list-icon>person</mat-icon>
+                <span class="truncate">Reportado por: {{ incidencia.Area }}</span>
 
-                <span class="truncate"> Asignado a: {{incidencia.UsuarioAsignado}}</span>
+
             </a>
-
-            <a mat-list-item color="warn">
-                <mat-icon [ngStyle]="{
-                    'color':incidencia.DetalleSeveridad == 'Muy baja' ?'gray':
-                    incidencia.DetalleSeveridad == 'Baja' ? '#ADD8E6'  :
-                    incidencia.DetalleSeveridad == 'Media'? 'yellow' :
-                    incidencia.DetalleSeveridad == 'Alta' ? '#EF7F1A':
-                    incidencia.DetalleSeveridad == 'Complicada' ? '#FF4500':
-                    incidencia.DetalleSeveridad == 'Muy alta' ? '#e91e63':
-                    'yellow'}" mat-list-icon>warning</mat-icon>
-
-                <span class="truncate" [ngStyle]="{
-                          'color':incidencia.DetalleSeveridad == 'Muy baja' ?'white':
-                          incidencia.DetalleSeveridad == 'Baja' ? '#ADD8E6'  :
-                          incidencia.DetalleSeveridad == 'Media'? 'yellow' :
-                          incidencia.DetalleSeveridad == 'Alta' ? '#EF7F1A':
-                          incidencia.DetalleSeveridad == 'Complicada' ? '#dc143c':
-                          incidencia.DetalleSeveridad == 'Muy alta' ? 'white':
-                          'white'}">Severidad: {{incidencia.DetalleSeveridad}}</span>
-            </a>
-
             <a mat-list-item>
-                <mat-icon mat-list-icon>report</mat-icon>
+                <mat-icon mat-list-icon>person</mat-icon>
+                <span class="truncate">
+            Asignado a: {{ incidencia.UsuarioAsignado }}</span
+          >
+      </a>
 
-                <span>Estatus {{incidencia.DetalleEstatus }} </span>
+      <a mat-list-item color="warn">
+        <mat-icon
+          [ngStyle]="{
+            color:
+              incidencia.DetalleSeveridad == 'Muy baja'
+                ? 'gray'
+                : incidencia.DetalleSeveridad == 'Baja'
+                ? '#ADD8E6'
+                : incidencia.DetalleSeveridad == 'Media'
+                ? 'yellow'
+                : incidencia.DetalleSeveridad == 'Alta'
+                ? '#EF7F1A'
+                : incidencia.DetalleSeveridad == 'Complicada'
+                ? '#FF4500'
+                : incidencia.DetalleSeveridad == 'Muy alta'
+                ? '#e91e63'
+                : 'yellow'
+          }"
+          mat-list-icon
+          >warning</mat-icon
+        >
+
+        <span
+          class="truncate"
+          [ngStyle]="{
+            color:
+              incidencia.DetalleSeveridad == 'Muy baja'
+                ? 'white'
+                : incidencia.DetalleSeveridad == 'Baja'
+                ? '#ADD8E6'
+                : incidencia.DetalleSeveridad == 'Media'
+                ? 'yellow'
+                : incidencia.DetalleSeveridad == 'Alta'
+                ? '#EF7F1A'
+                : incidencia.DetalleSeveridad == 'Complicada'
+                ? '#dc143c'
+                : incidencia.DetalleSeveridad == 'Muy alta'
+                ? 'white'
+                : 'white'
+          }"
+          >Severidad: {{ incidencia.DetalleSeveridad }}</span
+        >
+      </a>
+
+      <a mat-list-item>
+        <mat-icon mat-list-icon>report</mat-icon>
+
+        <span>Estatus {{ incidencia.DetalleEstatus }} </span>
             </a>
             <a mat-list-item>
                 <mat-icon mat-list-icon>label</mat-icon>
 
-                <span class="truncate"> Observaciones: {{incidencia.Observaciones}}</span>
-            </a>
-            <a mat-list-item color="warn">
-                <mat-icon mat-list-icon>event</mat-icon>
+                <span class="truncate">
+          Observaciones: {{ incidencia.Observaciones }}</span
+        >
+      </a>
+      <a mat-list-item color="warn">
+        <mat-icon mat-list-icon>event</mat-icon>
 
-                <span class="truncate"> {{incidencia.FechaHoraReporte |  date: 'dd/MM/yyyy'}} </span>
+        <span class="truncate">
+          {{ incidencia.FechaHoraReporte | date: "dd/MM/yyyy" }}
+        </span>
             </a>
         </mat-nav-list>
-
-
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button color="accent" [routerLink]="['/incidencias',incidencia.Id]" routerLinkActive="router-link-active">Más Detalles</button>
-        <!-- <button mat-button color="info"></button> -->
+        <button mat-raised-button color="accent" [routerLink]="['/incidencias', incidencia.Id]" routerLinkActive="router-link-active">
+      Más Detalles
+    </button>
+        <button mat-button color="accent" (click)="openDialog()">Ver evidencias</button>
+
     </mat-card-actions>
 </mat-card>

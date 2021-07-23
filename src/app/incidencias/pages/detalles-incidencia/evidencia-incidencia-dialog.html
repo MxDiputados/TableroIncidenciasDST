@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Evidencias</h2>
+<mat-dialog-content class="mat-typography">
+    <h3>{{data.Descripcion}}</h3>
+    <p>{{data.Observaciones}}</p>
+    <div [innerHTML]="data.Evidencia"></div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Entendido</button>
+</mat-dialog-actions>

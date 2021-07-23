@@ -11,6 +11,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select'; 
 import {ScrollingModule} from '@angular/cdk/scrolling';  
 import {DragDropModule} from '@angular/cdk/drag-drop'; 
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -25,7 +26,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatGridListModule,
     MatSelectModule,
     ScrollingModule,
-    DragDropModule
+    DragDropModule,
+    MatDialogModule,
   ],
  
 })

@@ -18,6 +18,8 @@ export const allIncidencias = gql`
       DetalleCategoria
       Estatus
       DetalleEstatus
+      NombreModulo
+      Evidencia
     }
   }
 `;
@@ -39,6 +41,9 @@ export const getAllIncidenciaById = gql`
       Categoria
       DetalleCategoria
       Estatus
+      EvidenciaB64
+      Evidencia
+      NombreModulo
     }
   }
 `;

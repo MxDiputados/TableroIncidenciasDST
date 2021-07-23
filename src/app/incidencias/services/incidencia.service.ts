@@ -31,6 +31,9 @@ export class IncidenciaService {
         DetalleEstatus
         DetalleSistema
         Sistema
+        Evidencia
+        EvidenciaB64
+        NombreModulo
       }}
       `,
       fetchPolicy:'network-only',
