@@ -43,11 +43,7 @@ export class DetallesIncidenciaComponent implements OnInit {
   };
   openDialog() {
     const dialogRef = this.dialog.open(EvidendiaIncidenciaDialog, {
-      data: {
-        Descripcion: this.incidenciasId.Descripcion,
-        Evidencia: this.incidenciasId.Evidencia,
-        Observaciones: this.incidenciasId.Observaciones,
-      },
+      data: this.incidenciasId,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

@@ -22,7 +22,7 @@ export interface Severidad {
 })
 export class IncidenciaComponent implements OnInit {
   loading: boolean = false;
-
+  modulos: any = [{ texto: 'Todos', value: 999 }];
   estatus: Estatus[] = [
     { texto: 'Todos', value: 999 },
     { texto: 'Reportado', value: 0 },
@@ -154,13 +154,14 @@ export class IncidenciaComponent implements OnInit {
     this.filtrar();
   }
 
-  
   // console.log(inventory.find(isTable));
 
   filtrar() {
     console.log('tipo', this.tipoEstatus);
     this.incidenciasFiltradas = this.incidencias.filter((inci) => {
-      return this.tipoEstatus !== 999 ? inci.Estatus === this.tipoEstatus : true;
+      return this.tipoEstatus !== 999
+        ? inci.Estatus === this.tipoEstatus
+        : true;
     });
     this.incidenciasFiltradas = this.incidenciasFiltradas.filter((inci) => {
       return this.sistema !== '' ? inci.Sistema === this.sistema : true;

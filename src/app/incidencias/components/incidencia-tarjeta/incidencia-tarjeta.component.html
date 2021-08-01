@@ -16,7 +16,7 @@
             ? '#e91e63'
             : 'yellow'
       }">{{ incidencia.Descripcion | titlecase }}</mat-card-title>
-        <mat-card-subtitle>{{ incidencia.DetalleSistema }}-{{ incidencia.NombreModulo }} </mat-card-subtitle>
+        <mat-card-subtitle><strong> Sistema: </strong>{{ incidencia.DetalleSistema }}- <strong> Módulo: </strong>{{ incidencia.NombreModulo }} </mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
@@ -99,11 +99,11 @@
             </a>
         </mat-nav-list>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button color="accent" [routerLink]="['/incidencias', incidencia.Id]" routerLinkActive="router-link-active">
+    <mat-card-actions *ngIf="this.botonEncendido">
+        <!-- <button mat-raised-button color="accent" [routerLink]="['/incidencias', incidencia.Id]" routerLinkActive="router-link-active">
       Más Detalles
-    </button>
-        <button mat-button color="accent" (click)="openDialog()">Ver evidencias</button>
+    </button> -->
+        <button mat-button color="accent" (click)="openDialog()">Ver detalles</button>
 
     </mat-card-actions>
 </mat-card>

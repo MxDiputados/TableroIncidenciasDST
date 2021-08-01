@@ -25,6 +25,16 @@
         </mat-form-field>
     </div>
     <div class="child-3" fxFlex>
+        <h4>Filtrar por Módulo</h4>
+        <mat-form-field appearance="fill">
+            <mat-label>Elija el módulo</mat-label>
+            <mat-select id="estatus" [(value)]="severidad" [(ngModel)]="severidad" (selectionChange)="filtrar()">
+                <mat-option *ngFor="let item of modulos" [value]="item.value">{{ item.texto }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="child-4" fxFlex>
         <h4>Filtrar por severidad</h4>
         <mat-form-field appearance="fill">
             <mat-label>Elija la severidad</mat-label>

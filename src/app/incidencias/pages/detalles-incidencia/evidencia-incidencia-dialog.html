@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Evidencias</h2>
 <mat-dialog-content class="mat-typography">
-    <h3>{{data.Descripcion}}</h3>
+    <app-incidencia-tarjeta [incidencia]="data" [botonEncendido]="false"></app-incidencia-tarjeta>
     <p>{{data.Observaciones}}</p>
     <div [innerHTML]="data.Evidencia"></div>
 
