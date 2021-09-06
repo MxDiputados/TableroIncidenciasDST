@@ -2,17 +2,32 @@ mat-card {
     margin-top: 20px;
     max-width: 380px;
 }
-
+.truncateTitulo{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* orientacion */
+    -webkit-line-clamp: 4;
+    /* solo muestra las primeras 3 lineas*/
+    overflow: hidden;
+    /* ocultara todo lo demas */
+}
 .truncate {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     /* orientacion */
-    -webkit-line-clamp: 5;
-    /* solo muestra las primeras 5 lineas*/
+    -webkit-line-clamp: 3;
+    /* solo muestra las primeras 3 lineas*/
     overflow: hidden;
     /* ocultara todo lo demas */
 }
 
 .spacer {
     flex: 1 1 auto;
+}
+.bgC{
+    background-color: #0a3029;
+    color: white;
+}
+.centrado{
+    text-align: center;
 }

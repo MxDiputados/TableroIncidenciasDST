@@ -5,47 +5,85 @@
 </mat-grid-list>
 
 <div *ngIf="!loading">
-    <h1>Detalles de incidencias</h1>
+    <h1>Detalles de incidencia {{incidenciasId.DetalleSistema}}</h1>
     <mat-card>
-        <mat-card-header>
-            <mat-card-title> {{incidenciasId.DetalleSistema}} - {{incidenciasId.NombreModulo}}</mat-card-title>
-            <mat-card-subtitle>{{incidenciasId.Descripcion}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card fxLayout fxLayoutGap="20px">
-            <mat-card class="child-1">
-                <mat-icon>person</mat-icon> Reportado por: {{incidenciasId.Area}}</mat-card>
-            <mat-card class="child-2">
-                <mat-icon>person</mat-icon> Asignado a: {{incidenciasId.UsuarioAsignado}}</mat-card>
-        </mat-card>
-        <mat-card fxLayout fxLayoutGap="20px">
-            <mat-card class="child-3">
-                <mat-icon [ngStyle]="{'color':incidenciasId.Categoria == 5 ?'red':'yellow'}">warning</mat-icon>
-                <span [ngStyle]="{'color':incidenciasId.Categoria == 5 ?'red':'yellow'}"> Categoria: </span> <span>{{incidenciasId.DetalleCategoria}}</span></mat-card>
-            <mat-card class="child-4">
-                <mat-icon>event</mat-icon>
-                <span> {{incidenciasId.FechaHoraReporte | date: 'dd/MM/yyyy'}} </span></mat-card>
-            <mat-card class="child-5">
-                <mat-icon>info</mat-icon>
-                <span>Severidad {{incidenciasId.DetalleSeveridad}} </span></mat-card>
-        </mat-card>
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
 
-        <mat-card-content>
-            <mat-nav-list>
-                <a mat-list-item>
+                <mat-card-header>
+                    <mat-card-title> {{incidenciasId.DetalleSistema}} - {{incidenciasId.NombreModulo}}
+                    </mat-card-title>
+                    <mat-card-subtitle>{{incidenciasId.Descripcion}}</mat-card-subtitle>
+                </mat-card-header>
+
+            </div>
+        </div>
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <mat-card>
+                    <mat-icon>person</mat-icon> Reportado por: {{incidenciasId.Area}}
+                </mat-card>
+            </div>
+            <div class="p-2 bd-highlight">
+                <mat-card>
+                    <mat-icon>person</mat-icon> Asignado a: {{incidenciasId.UsuarioAsignado}}
+                </mat-card>
+            </div>
+            <div class="p-2 bd-highlight">
+                <mat-card>
+                    <!-- [ngStyle]="{'color':incidenciasId.Categoria == 5 ?'red':'yellow'}"
+                    [ngStyle]="{'color':incidenciasId.Categoria == 5 ?'red':'yellow'}"
+                    -->
+                    <mat-icon>warning</mat-icon>
+                    <span > Categoria: </span>
+                    <span>{{incidenciasId.DetalleCategoria}}</span>
+                </mat-card>
+            </div>
+            <div class="p-2 bd-highlight">
+                <mat-card>
+                    <mat-icon>event</mat-icon>
+                    <span> {{incidenciasId.FechaHoraReporte | date: 'dd/MM/yyyy'}} </span>
+                </mat-card>
+            </div>
+        </div>
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <mat-card>
+                    <mat-icon>info</mat-icon>
+                    <span>Severidad {{incidenciasId.DetalleSeveridad}} </span>
+                    
+                </mat-card>
+            </div>
+            <div class="p-2 bd-highlight">
+                <mat-card>
                     <mat-icon mat-list-icon>report</mat-icon>
-
                     <span>Estatus {{ incidenciasId.DetalleEstatus }} </span>
-                </a>
-                <p mat-list-item>
+                    
+                </mat-card>
+            </div>
+            <div class="p-2 bd-highlight">
+                <mat-card>
                     <mat-icon mat-list-icon>label</mat-icon>
                     <span> Observaciones: {{incidenciasId.Observaciones}}</span>
-                </p>
-            </mat-nav-list>
-        </mat-card-content>
+                </mat-card>
+            </div>
+            <!-- <div class="p-2 bd-highlight">
+                <mat-card>
+                    <mat-icon>event</mat-icon>
+                    <span> {{incidenciasId.NombreModulo}} </span>
+                </mat-card>
+            </div> -->
+        </div>
         <mat-card-actions>
             <button mat-raised-button color="accent" (click)="openDialog()">Ver evidencias</button>
-            <button mat-raised-button color="primary">Avanzar</button>
-            <button mat-raised-button color="warn" [routerLink]="['/incidencias']" routerLinkActive="router-link-active">Regresar</button>
+            <!-- *ngIf="router.url=="/login"" -->
+            <button mat-raised-button color="warn" (click)="goBack()">Regresar</button>
+            <!-- <button mat-raised-button color="primary">Avanzar</button> -->
+            <!-- <button mat-raised-button color="warn" [routerLink]="['/incidencias']"
+                routerLinkActive="router-link-active">Regresar</button> -->
         </mat-card-actions>
     </mat-card>
+
+
+    
 </div>

@@ -12,13 +12,6 @@
         </mat-toolbar>
         <mat-nav-list>
             <a  mat-list-item
-                routerLink="incidencias"
-                (click)="sidenav.toggle()" >
-                <mat-icon mat-list-icon>label</mat-icon>
-
-                <span>Listado de Incidencias</span>
-            </a>
-            <a  mat-list-item
                 routerLink="tablero" 
                 (click)="sidenav.toggle()"
                  >
@@ -26,7 +19,14 @@
 
                 <span>Tablero</span>
             </a>
+            <a  mat-list-item
+                routerLink="incidencias"
+                (click)="sidenav.toggle()" >
+                <mat-icon mat-list-icon>label</mat-icon>
 
+                <span>Listado de Incidencias</span>
+            </a>
+            
         </mat-nav-list>
     </mat-sidenav>
 
@@ -40,7 +40,7 @@
     </mat-toolbar>
     
 
-    <div class="container">
+    <div class="container" style="background-color:#f8f9fa;">
 
         <router-outlet></router-outlet>
     </div>

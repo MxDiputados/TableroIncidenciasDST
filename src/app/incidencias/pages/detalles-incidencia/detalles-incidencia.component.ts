@@ -2,6 +2,7 @@ import { Incidencias } from './../../interface/interface';
 import { IncidenciaService } from '../../services/incidencia.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import {
   MatDialog,
   MatDialogRef,
@@ -17,7 +18,8 @@ export class DetallesIncidenciaComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private incidencia: IncidenciaService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _location: Location
   ) {}
   loading: boolean = false;
 
@@ -59,15 +61,20 @@ export class DetallesIncidenciaComponent implements OnInit {
     this.route.params.subscribe((params) => {
       // console.log(params.id);
       const id = params.id;
-      console.log('esteeeeee id', id);
+      // console.log('esteeeeee id', id);
       this.incidencia.getIncidenciasById(id).subscribe((resp) => {
         this.incidenciasId = resp;
-        console.log('this.incidenciasIdasasdasdasd', this.incidenciasId);
+        // console.log('this.incidenciasIdasasdasdasd', this.incidenciasId);
         setInterval(() => (this.loading = false), 450);
       });
     });
   }
+  goBack(){
+    this._location.back();
+  }
 }
+
+
 @Component({
   selector: 'evidencia-incidencia-dialog',
   templateUrl: 'evidencia-incidencia-dialog.html',

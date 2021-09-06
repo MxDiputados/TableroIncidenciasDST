@@ -1,20 +1,20 @@
-<mat-card>
+<mat-card class="caja">
     <mat-card-header>
-        <mat-card-title [ngStyle]="{
+        <mat-card-title class="truncateTitulo" [ngStyle]="{
         color:
           incidencia.DetalleSeveridad == 'Muy baja'
-            ? 'gray'
+            ? '#B0BFD6'
             : incidencia.DetalleSeveridad == 'Baja'
             ? '#ADD8E6'
             : incidencia.DetalleSeveridad == 'Media'
-            ? 'yellow'
+            ? '#F6DE0C'
             : incidencia.DetalleSeveridad == 'Alta'
             ? '#EF7F1A'
             : incidencia.DetalleSeveridad == 'Complicada'
             ? '#FF4500'
             : incidencia.DetalleSeveridad == 'Muy alta'
             ? '#e91e63'
-            : 'yellow'
+            : '#F6DE0C'
       }">{{ incidencia.Descripcion | titlecase }}</mat-card-title>
         <mat-card-subtitle>{{ incidencia.DetalleSistema }}-{{ incidencia.NombreModulo }} </mat-card-subtitle>
     </mat-card-header>
@@ -39,18 +39,18 @@
           [ngStyle]="{
             color:
               incidencia.DetalleSeveridad == 'Muy baja'
-                ? 'gray'
+                ? '#B0BFD6'
                 : incidencia.DetalleSeveridad == 'Baja'
                 ? '#ADD8E6'
                 : incidencia.DetalleSeveridad == 'Media'
-                ? 'yellow'
+                ? '#F6DE0C'
                 : incidencia.DetalleSeveridad == 'Alta'
                 ? '#EF7F1A'
                 : incidencia.DetalleSeveridad == 'Complicada'
                 ? '#FF4500'
                 : incidencia.DetalleSeveridad == 'Muy alta'
                 ? '#e91e63'
-                : 'yellow'
+                : '#F6DE0C'
           }"
           mat-list-icon
           >warning</mat-icon
@@ -61,17 +61,17 @@
           [ngStyle]="{
             color:
               incidencia.DetalleSeveridad == 'Muy baja'
-                ? 'white'
+                ? '#B0BFD6'
                 : incidencia.DetalleSeveridad == 'Baja'
                 ? '#ADD8E6'
                 : incidencia.DetalleSeveridad == 'Media'
-                ? 'yellow'
+                ? '#F6DE0C'
                 : incidencia.DetalleSeveridad == 'Alta'
                 ? '#EF7F1A'
                 : incidencia.DetalleSeveridad == 'Complicada'
                 ? '#dc143c'
                 : incidencia.DetalleSeveridad == 'Muy alta'
-                ? 'white'
+                ? 'red'
                 : 'white'
           }"
           >Severidad: {{ incidencia.DetalleSeveridad }}</span
@@ -99,11 +99,11 @@
             </a>
         </mat-nav-list>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions class="centrado">
         <button mat-raised-button color="accent" [routerLink]="['/incidencias', incidencia.Id]" routerLinkActive="router-link-active">
       Más Detalles
     </button>
-        <button mat-button color="accent" (click)="openDialog()">Ver evidencias</button>
+        <button mat-button color="accent" class="bgC" (click)="openDialog()">Ver evidencias</button>
 
     </mat-card-actions>
 </mat-card>

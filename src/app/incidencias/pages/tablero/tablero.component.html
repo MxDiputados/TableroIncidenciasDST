@@ -3,44 +3,96 @@
         <mat-spinner></mat-spinner>
     </mat-grid-tile>
 </mat-grid-list>
-<div *ngIf="!loading">
-    <!-- <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="150" class="example-viewport"> -->
-    <div fxLayout="row" fxLayoutGap="10px" class="container">
-        <div>
-            <h3><strong>Reportado </strong> <button mat-mini-fab><strong>{{reportado.length}}</strong></button></h3>
-            <span *ngIf="reportado?.length > 0"><div *ngFor="let incidencia of reportado | filter: 'Reportado'">
-            <app-incidencia-tarjeta
-              [incidencia]="incidencia"
-            ></app-incidencia-tarjeta></div
-        ></span>
-            <section>
-                <div>
-                    <div *ngIf="reportado?.length === 0">
-                        <div class="row espacioSeparador" data-aos="fade-right">
-                            <div class="col-12 separadorFondo">
-                                <h4 class="formatoSeparador">Resultados</h4>
-                            </div>
-                        </div>
+<div fxLayout="row wrap " fxLayout.xs="column " fxLayoutAlign="center " fxLayoutGap="20px">
+    <div fxFlex="30 " fxFlex.lg="30 " fxFlex.sm="30 ">
+        <div *ngIf="!loading" class="flex-container" fxLayout="row" fxLayout="row wrap ">
+            <div class="child-1 " fxFlex>
+                <mat-card>
 
-                        <div class="row items-container m-5">
-                            <div class="col-md-6">
-                                <div class="alert alert-success text-center" role="alert">
-                                    No existen incidencias
-                                </div>
+                    <h4>Fitrar por modulo</h4>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Elija un módulo</mat-label>
+                        <mat-select id="estatus" [(value)]="tipoModulo" [(ngModel)]="tipoModulo"
+                            (selectionChange)="filtrar()">
+                            <mat-option *ngFor="let modulo of modulos" [value]="modulo.nombreModulo">
+                                {{modulo.nombreModulo}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-card>
+            </div>
+            <div class="child-1" fxFlex>
+                <mat-card>
+                    <h4>Filtrar por sistema</h4>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Eliga un sistema</mat-label>
+                        <mat-select id="estatus" [(value)]="sistema" [(ngModel)]="sistema"
+                            (selectionChange)="filtrar()">
+                            <mat-option *ngFor="let item of sistemas" [value]="item.Oid">{{ item.NombreSistema }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-card>
+            </div>
+            <div class="child-1" fxFlex>
+                <mat-card>
+                    <h4>Filtrar por severidad</h4>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Elija la severidad</mat-label>
+                        <mat-select id="estatus" [(value)]="severidad" [(ngModel)]="severidad"
+                            (selectionChange)="filtrar()">
+                            <mat-option *ngFor="let item of severidades" [value]="item.value">{{ item.texto }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex  flex-nowrap mt-5" fxLayoutGap="35px" *ngIf="!loading">
+    <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3">
+
+
+        <h3><strong>Reportado </strong> <button mat-mini-fab><strong>{{reportado.length}}</strong></button></h3>
+        <span *ngIf="reportado?.length > 0">
+            <div *ngFor="let incidencia of reportado ">
+                <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+            </div>
+        </span>
+        <section>
+            <div>
+                <div *ngIf="reportado?.length === 0">
+                    <div class="row espacioSeparador" data-aos="fade-right">
+                        <div class="col-12 separadorFondo">
+                            <h4 class="formatoSeparador">Resultados</h4>
+                        </div>
+                    </div>
+
+                    <div class="row items-container m-5">
+                        <div class="col-md-12">
+                            <div class="alert alert-success text-center" role="alert">
+                                No existen incidencias
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+
+
+    </div>
+    <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3">
 
         <div>
             <h3><strong>Asignado </strong> <button mat-mini-fab><strong>{{asignado.length}}</strong></button></h3>
-            <span *ngIf="asignado?.length||0 > 0"><div *ngFor="let incidencia of asignado | filter: 'Asignado'">
-            <app-incidencia-tarjeta
-              [incidencia]="incidencia"
-            ></app-incidencia-tarjeta></div
-        ></span>
+            <span *ngIf="asignado?.length||0 > 0">
+                <div *ngFor="let incidencia of asignado ">
+                    <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+                </div>
+            </span>
 
             <section>
                 <div>
@@ -52,7 +104,7 @@
                         </div>
 
                         <div class="row items-container m-5">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="alert alert-success text-center" role="alert">
                                     No existen incidencias
                                 </div>
@@ -62,42 +114,47 @@
                 </div>
             </section>
         </div>
-        <div>
-            <h3><strong>En atención </strong> <button mat-mini-fab><strong>{{enAtencion.length}}</strong></button></h3>
-            <span *ngIf="enAtencion?.length||0 > 0">
-                <div *ngFor="let incidencia of enAtencion ">
-                    <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
-                </div>
-                </span>
-            <section>
-                <div>
-                    <div *ngIf="enAtencion?.length === 0">
-                        <div class="row espacioSeparador" data-aos="fade-right">
-                            <div class="col-12 separadorFondo">
-                                <h4 class="formatoSeparador">Resultados</h4>
-                            </div>
-                        </div>
 
-                        <div class="row items-container m-5">
-                            <div class="col-md-6">
-                                <div class="alert alert-success text-center" role="alert">
-                                    No existen incidencias
-                                </div>
+
+    </div>
+    <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3">
+
+        <h3><strong>En atención </strong> <button mat-mini-fab><strong>{{enAtencion.length}}</strong></button></h3>
+        <span *ngIf="enAtencion?.length||0 > 0">
+            <div *ngFor="let incidencia of enAtencion ">
+                <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+            </div>
+        </span>
+        <section>
+            <div>
+                <div *ngIf="enAtencion?.length === 0">
+                    <div class="row espacioSeparador" data-aos="fade-right">
+                        <div class="col-12 separadorFondo">
+                            <h4 class="formatoSeparador">Resultados</h4>
+                        </div>
+                    </div>
+
+                    <div class="row items-container m-5">
+                        <div class="col-md-12">
+                            <div class="alert alert-success text-center" role="alert">
+                                No existen incidencias
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+
+    </div>
+    <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3">
+
         <div>
             <h3><strong>Verificar </strong> <button mat-mini-fab><strong>{{verificar.length}}</strong></button></h3>
             <span *ngIf="verificar?.length||0 > 0">
-          <div *ngFor="let incidencia of verificar | filter: 'Verificar'">
-            <app-incidencia-tarjeta
-              [incidencia]="incidencia"
-            ></app-incidencia-tarjeta>
-          </div>
-        </span>
+                <div *ngFor="let incidencia of verificar ">
+                    <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+                </div>
+            </span>
             <section>
                 <div>
                     <div *ngIf="verificar?.length === 0">
@@ -108,7 +165,7 @@
                         </div>
 
                         <div class="row items-container m-5">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="alert alert-success text-center" role="alert">
                                     No existen incidencias
                                 </div>
@@ -118,11 +175,18 @@
                 </div>
             </section>
         </div>
-        <div fxLayout="column" fxLayoutGap="32px">
-            <span *ngIf="atendido.length>0"><h4><strong>Atendido </strong> <button mat-mini-fab><strong>{{atendido.length}}</strong></button></h4>
-            <div *ngFor="let incidencia of atendido | filter: 'Atendido'">
-                <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
-            </div></span>
+
+    </div>
+    <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3">
+
+        <div>
+            <h3><strong>Atendido </strong> <button mat-mini-fab><strong>{{atendido.length}}</strong></button></h3>
+            <span *ngIf="atendido?.length||0 > 0">
+                <div *ngFor="let incidencia of atendido ">
+                    <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+                </div>
+            </span>
+            
             <section>
                 <div>
                     <div *ngIf="atendido?.length === 0">
@@ -133,7 +197,7 @@
                         </div>
 
                         <div class="row items-container m-5">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="alert alert-success text-center" role="alert">
                                     No existen incidencias
                                 </div>
@@ -143,13 +207,17 @@
                 </div>
             </section>
         </div>
-        <div fxLayout="column" fxLayoutGap="32px">
+
+    </div>
+    <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3">
+
+        <div>
             <h3><strong>Rechazado </strong> <button mat-mini-fab><strong>{{rechazado.length}}</strong></button></h3>
-            <span *ngIf="rechazado?.length||0 > 0"><div *ngFor="let incidencia of rechazado | filter: 'Rechazado'">
-            <app-incidencia-tarjeta
-              [incidencia]="incidencia"
-            ></app-incidencia-tarjeta></div
-        ></span>
+            <span *ngIf="rechazado?.length||0 > 0">
+                <div *ngFor="let incidencia of rechazado ">
+                    <app-incidencia-tarjeta [incidencia]="incidencia"></app-incidencia-tarjeta>
+                </div>
+            </span>
 
             <div *ngIf="rechazado?.length === 0">
                 <div class="row espacioSeparador" data-aos="fade-right">
@@ -159,7 +227,7 @@
                 </div>
 
                 <div class="row items-container m-5">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="alert alert-success text-center" role="alert">
                             No existen incidencias
                         </div>
@@ -167,6 +235,7 @@
                 </div>
             </div>
         </div>
+
     </div>
-    <!-- </cdk-virtual-scroll-viewport> -->
+
 </div>

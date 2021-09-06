@@ -10,6 +10,10 @@ const routes: Routes = [
     path:'',
     children:[
       {
+        path:'tablero',
+        component: TableroComponent
+      },
+      {
         path:'incidencias',
         component: IncidenciaComponent
       },
@@ -17,13 +21,10 @@ const routes: Routes = [
         path:'incidencias/:id',
         component: DetallesIncidenciaComponent
       },
-      {
-        path:'tablero',
-        component: TableroComponent
-      },
+     
       {
         path:'**',
-        redirectTo:'incidencias'
+        redirectTo:'tablero'
       }
       
     ]

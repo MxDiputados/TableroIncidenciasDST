@@ -13,7 +13,6 @@ export class IncidenciaService {
 
  
   getIncidenciasById(id:number){
-    console.log("hola");
     return this.apollo.watchQuery({
       query:gql`{allIncidenciaById(Id: ${id}){
         Descripcion
@@ -40,7 +39,7 @@ export class IncidenciaService {
     })
     .valueChanges.pipe(
       map((result:any) => {
-        console.log("getIncidenciasById",result);
+        // console.log("getIncidenciasById",result);
         return result.data.allIncidenciaById;
       })
     )

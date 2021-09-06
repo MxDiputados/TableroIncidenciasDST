@@ -3,38 +3,50 @@
         <mat-spinner></mat-spinner>
     </mat-grid-tile>
 </mat-grid-list>
-<div *ngIf="!loading" class="flex-container" fxLayout="row">
-    <div class="child-1" fxFlex>
-        <h4>Fitrar por estado</h4>
-        <mat-form-field appearance="fill">
-            <mat-label>Elija un estado</mat-label>
-            <mat-select id="estatus" [(value)]="tipoEstatus" [(ngModel)]="tipoEstatus" (selectionChange)="filtrar()">
-                <mat-option *ngFor="let estatu of estatus" [value]="estatu.value">{{ estatu.texto }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="child-2" fxFlex>
-        <h4>Filtrar por sistema</h4>
-        <mat-form-field appearance="fill">
-            <mat-label>Eliga un sistema</mat-label>
-            <mat-select id="estatus" [(value)]="sistema" [(ngModel)]="sistema" (selectionChange)="filtrar()">
-                <mat-option *ngFor="let item of sistemas" [value]="item.Oid">{{ item.NombreSistema }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="child-3" fxFlex>
-        <h4>Filtrar por severidad</h4>
-        <mat-form-field appearance="fill">
-            <mat-label>Elija la severidad</mat-label>
-            <mat-select id="estatus" [(value)]="severidad" [(ngModel)]="severidad" (selectionChange)="filtrar()">
-                <mat-option *ngFor="let item of severidades" [value]="item.value">{{ item.texto }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+<div fxLayout="row wrap " fxLayout.xs="column " fxLayoutAlign="center " fxLayoutGap="20px ">
+    <div  fxLayout="row wrap " fxFlex="30 " fxFlex.lg="30 " fxFlex.sm="30 ">
+        <div *ngIf="!loading" class="flex-container" fxLayout="row" fxLayout="row wrap ">
+            <div class="child-1 " fxFlex>
+                <mat-card>
+        
+                <h4>Fitrar por estado</h4>
+                <mat-form-field appearance="fill">
+                    <mat-label>Elija un estado</mat-label>
+                    <mat-select id="estatus" [(value)]="tipoEstatus" [(ngModel)]="tipoEstatus" (selectionChange)="filtrar()">
+                        <mat-option *ngFor="let estatu of estatus" [value]="estatu.value">{{ estatu.texto }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-card>
+            </div>
+            <div class="child-1" fxFlex>
+                <mat-card>
+                <h4>Filtrar por sistema</h4>
+                <mat-form-field appearance="fill">
+                    <mat-label>Eliga un sistema</mat-label>
+                    <mat-select id="estatus" [(value)]="sistema" [(ngModel)]="sistema" (selectionChange)="filtrar()">
+                        <mat-option *ngFor="let item of sistemas" [value]="item.Oid">{{ item.NombreSistema }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-card>
+            </div>
+            <div class="child-1" fxFlex>
+                <mat-card>
+                <h4>Filtrar por severidad</h4>
+                <mat-form-field appearance="fill">
+                    <mat-label>Elija la severidad</mat-label>
+                    <mat-select id="estatus" [(value)]="severidad" [(ngModel)]="severidad" (selectionChange)="filtrar()">
+                        <mat-option *ngFor="let item of severidades" [value]="item.value">{{ item.texto }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-card>
+            </div>
+        </div>
     </div>
 </div>
+
 
 <mat-divider></mat-divider>
 <br />
